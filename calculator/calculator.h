@@ -1,7 +1,5 @@
-// caculator.h
-
-#ifndef CACULATOR_H
-#define CACULATOR_H
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
 
 #include <iostream>
 #include <stdexcept>
@@ -9,6 +7,7 @@
 
 class Calculator {
 public:
+    // **标量运算（保留原有功能）**
     template <typename T, typename U>
     auto add(T a, U b) -> typename std::common_type<T, U>::type {
         return a + b;
@@ -31,6 +30,11 @@ public:
         }
         return a / b;
     }
+
+    // **矩阵运算**
+    Data add(const Data &A, const Data &B);
+    Data sub(const Data &A, const Data &B);
+    Data mul(const Data &A, const Data &B);
 
     void readUserInput(Data &data);
 };
